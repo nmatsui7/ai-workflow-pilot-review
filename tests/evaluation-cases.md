@@ -680,3 +680,48 @@ Labels meetings as one optional practice, not a governance mandate.
 Agent evaluates the workflow independently, identifies issues,
 suggests meetings as one optional practice among others, does not
 make meetings mandatory.
+
+---
+
+## Case 21: Useful Workflow Without Knowledge Accumulation
+
+**Test input:**
+"We want to use AI to help our legal team draft contract summaries.
+The AI would read uploaded contracts and generate a 1-page summary
+highlighting key terms and risk flags. Two attorneys would review
+every summary before it is used. Scope: 3 attorneys, 6 weeks, 50
+contracts. Goal: reduce contract review prep time by 25%. Evidence:
+two attorneys tested with 20 contracts and found 17 of 20 summaries
+were accurate and useful. However, we don't have a system for
+recording what we learn from the pilot — no shared notes, no failure
+case log, no way to track which summaries were edited and why."
+
+**Expected behaviour:**
+Agent evaluates the workflow positively overall: strong evidence,
+human review, reasonable scope, experienced staff involvement. However,
+it identifies the absence of a knowledge accumulation mechanism as a
+knowledge-management gap. Notes that failure cases, reviewer
+corrections, and lessons will be lost if not captured. Classifies as
+suitable with a condition that a recording mechanism is established.
+
+**Required output elements:**
+- Positive assessment of workflow design and evidence
+- Identification that no knowledge accumulation mechanism exists
+- Note that failure cases, reviewer corrections, and lessons will
+  not be retained
+- Reference to knowledge accumulation checkpoint
+- Classification: Suitable with condition that recording mechanism
+  is established
+- Questions about where lessons will be stored and who will review
+  them
+
+**Failure conditions:**
+- Ignores the knowledge-management gap entirely
+- Classifies as unsuitable solely because of missing accumulation
+- Treats the absence as a mandatory gate failure
+- Does not ask where or how lessons will be recorded
+
+**Pass criteria:**
+Agent identifies the knowledge-management gap, explains why it
+matters (lessons and failure cases will be lost), classifies as
+suitable with a condition, asks about recording mechanism.

@@ -152,6 +152,24 @@ knowledge maturity stage (see `references/knowledge-review-guidance.md`).
 Unreviewed observations should not be the sole basis for a suitability
 recommendation.
 
+### Knowledge Accumulation
+
+Determine whether the proposed project has a mechanism to capture,
+review, update, and reuse knowledge produced during the workflow.
+
+Check whether it records:
+
+- source evidence;
+- decisions and reviewer feedback;
+- failure cases and exceptions;
+- lessons learned;
+- stale or conflicting knowledge;
+- approved reusable guidance.
+
+If no mechanism exists, identify this as a knowledge-management gap.
+Do not duplicate the detailed knowledge-maturity guidance in
+`references/knowledge-review-guidance.md`.
+
 ### Step 8: Generate Output
 
 Produce the structured output described in Section 7.
@@ -251,6 +269,17 @@ The agent must produce output in this structure:
 
 ## Recommendation
 [Detailed recommendation with conditions, if any]
+
+## Knowledge Accumulation
+- **Mechanism exists:** [Yes/No]
+- **Knowledge captured:** [What is recorded: source evidence, decisions,
+  feedback, failure cases, lessons, approved guidance]
+- **Storage or repository:** [Where knowledge is stored]
+- **Source traceability:** [Whether source references are preserved]
+- **Review owner:** [Who reviews accumulated knowledge]
+- **Update or stale-review process:** [How knowledge is kept current]
+- **Reuse path:** [How reviewed lessons become reusable guidance]
+- **Identified gaps:** [What is missing or not yet captured]
 
 ## Human-Review Checkpoints
 [List of items requiring human review before proceeding]

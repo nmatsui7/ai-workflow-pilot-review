@@ -147,6 +147,25 @@ it exceeds 15%, investigate whether additional edge cases need to be
 added to the quality criteria. Store lessons learned with source
 references for future workflow improvements.
 
+## Knowledge Accumulation
+- **Mechanism exists:** Yes
+- **Knowledge captured:** Source evidence (50-ticket test data with
+  quality ratings), reviewer corrections (edge cases identified by
+  senior agents), failure cases (6 "not usable" summaries with
+  reasons), lessons (quality criteria updated with edge cases)
+- **Storage or repository:** Shared spreadsheet for quality ratings;
+  shared document for lessons with source references
+- **Source traceability:** Yes — test data linked to specific tickets;
+  lessons include source references
+- **Review owner:** Senior agents review weekly; pilot owner reviews
+  monthly
+- **Update or stale-review process:** Weekly 15-minute review meetings
+  during pilot; lessons document updated after each meeting
+- **Reuse path:** Reviewed lessons may be promoted to team quality
+  standards or shared with other support teams after pilot completion
+- **Identified gaps:** No formal process for retiring stale lessons
+  after the pilot ends
+
 ## Human-Review Checkpoints
 1. Confirm Zendesk API access is approved
 2. Confirm data handling policy for AI model

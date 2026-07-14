@@ -121,6 +121,19 @@ or Not applicable.
 | 10 | Is there a date or trigger for reviewing accumulated knowledge? | |
 | 11 | Are AI outputs still treated as drafts or recommendations? | |
 
+## Knowledge Accumulation
+
+Each item must be answered with: Yes, No, Unknown, or Not applicable.
+
+- [ ] Does the project capture source evidence?
+- [ ] Does it record reviewer feedback and decisions?
+- [ ] Are failure cases and exceptions retained?
+- [ ] Is there a defined owner for reviewing accumulated knowledge?
+- [ ] Can stale, incorrect, or conflicting knowledge be revised or
+  retired?
+- [ ] Is there a path for promoting reviewed lessons into examples,
+  playbooks, reference files, or skills?
+
 ## Mandatory Gates for Pilot Classification
 
 The following six gates must all be confirmed before a workflow can
