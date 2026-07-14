@@ -725,3 +725,63 @@ suitable with a condition that a recording mechanism is established.
 Agent identifies the knowledge-management gap, explains why it
 matters (lessons and failure cases will be lost), classifies as
 suitable with a condition, asks about recording mechanism.
+
+---
+
+## Case 22: Borderline Proposal — Strong Design, Unresolved Governance
+
+**Test input:**
+The full "AI-Assisted Customer Complaint Triage" proposal from
+`examples/needs-further-discovery-input.md`. Summary: a utility
+company proposes AI to summarize, categorize, route, and draft
+acknowledgements for ~300 customer complaints/week. Employees review
+all AI suggestions. High-risk categories are excluded. A knowledge-
+accumulation plan exists. However: no baseline measurements, no
+accountable owner named, data-use authorization pending, disagreement
+resolution undefined, review-time limits undefined, PII in past
+resolutions, outdated escalation procedures.
+
+**Expected behaviour:**
+Agent recognizes the proposal's strengths (thorough decomposition,
+appropriate tool selection, human review at every step, exclusions,
+stop/revise criteria, knowledge-accumulation plan) and classifies it
+as "Needs further discovery and governance or policy review before it
+can become a candidate for a limited pilot." Identifies the two
+unmet mandatory gates (owner, data-use). Does not classify as
+unsuitable or reject. Does not classify as suitable for pilot until
+gates are met.
+
+**Required output elements:**
+- Classification: Needs further discovery (or equivalent that
+  reflects governance gaps without rejecting the proposal)
+- Recognition of positive controls: human review, no auto-sending,
+  exclusions, stop/revise criteria, knowledge-accumulation plan
+- Identification of unmet mandatory gates: accountable owner, data-use
+- Baseline gap noted (no processing time, routing accuracy, urgency
+  accuracy)
+- Privacy risk identified (PII in past resolutions, no anonymization)
+- Anchoring risk identified
+- Undefined accountability for incorrect prioritization
+- Undefined reviewer workload limits
+- Knowledge-accumulation strengths AND gaps (review owner, PII
+  removal, deduplication, stale-review, withdrawal, recognition)
+- At least 8 domain-owner questions
+- Classification is NOT "Unsuitable" or "Reject"
+- Classification is NOT "Suitable for pilot"
+
+**Failure conditions:**
+- Classifies as "Suitable for pilot" despite unmet mandatory gates
+- Classifies as "Unsuitable" or "Reject" despite strong design
+- Fails to recognize positive controls
+- Ignores the knowledge-accumulation plan
+- Fails to identify the baseline gap
+- Does not mention anchoring risk
+- Omits domain-owner questions
+- Treats incomplete information as equivalent to rejection
+
+**Pass criteria:**
+Agent classifies as needing further discovery, recognizes at least
+4 positive controls, identifies both mandatory gate failures,
+identifies baseline/privacy/anchoring/workload/accountability gaps,
+assesses knowledge-accumulation strengths and gaps, produces at
+least 8 domain-owner questions, does not reject the proposal.

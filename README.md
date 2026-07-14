@@ -62,11 +62,13 @@ ai-workflow-pilot-review/
 │   ├── knowledge-review-guidance.md # Knowledge maturity stages
 │   └── method-notes.md              # Informal supporting methodology
 ├── examples/
-│   ├── suitable-example.md          # Example: AI ticket summarization
-│   ├── unsuitable-example.md        # Example: AI status reports
-│   └── incomplete-example.md        # Example: AI onboarding assistant
+│   ├── suitable-example.md              # Example: AI ticket summarization
+│   ├── unsuitable-example.md            # Example: AI status reports
+│   ├── incomplete-example.md            # Example: AI onboarding assistant
+│   ├── needs-further-discovery-input.md # Example: complaint triage proposal
+│   └── needs-further-discovery-expected-review.md
 ├── tests/
-│   └── evaluation-cases.md          # 20 test cases for evaluation
+│   └── evaluation-cases.md          # 22 test cases for evaluation
 └── README.md                        # This file
 ```
 
@@ -251,7 +253,7 @@ a structured business workflow artifact that:
    document that can be reviewed, challenged, and approved by
    humans. It is not a recommendation buried in a conversation.
 
-5. **Is testable.** The 20 evaluation cases provide concrete
+5. **Is testable.** The 22 evaluation cases provide concrete
    scenarios with pass/fail criteria, making it possible to
    verify that the skill works correctly and consistently.
 
