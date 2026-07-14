@@ -170,9 +170,9 @@ contradicts the goal.
 
 ## Failure Case 7: Scope Creep Beyond Pilot Limits
 
-**Scenario:** The workflow is described as a "small pilot" but
-the scope includes multiple teams, systems, or a timeline
-exceeding 8 weeks.
+**Scenario:** The workflow is described as a limited pilot but
+the scope includes multiple teams, systems, or a timeline that
+exceeds what the team can reasonably manage and evaluate.
 
 **Why it may happen:** The designer wants to maximize impact
 or does not understand the purpose of limiting scope. The
@@ -183,9 +183,11 @@ deployment without adequate testing; resource strain; inability
 to evaluate results fairly.
 
 **How the agent should detect it:** Check whether the proposed
-scope exceeds 5-20 participants, 8 weeks, or one
-team/department. Check whether the workflow touches multiple
-systems or departments.
+scope meets the limited pilot characteristics: bounded workflow
+and user group, limited consequences, reversible outcomes, named
+owner and reviewer, measurable baseline, manageable reviewer
+workload, sufficient duration, and explicit stop/revise criteria.
+Check whether the workflow touches multiple systems or departments.
 
 **Required mitigation:** Recommend reducing the scope to
 within pilot limits. Clarify what is in and out of scope

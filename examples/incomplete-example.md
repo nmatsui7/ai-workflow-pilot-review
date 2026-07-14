@@ -24,7 +24,7 @@ The agent would:
 2. Note the description is very vague - what policies? what format?
    what channel?
 3. Check scope: "all new hires across the company" is too broad for
-   a small pilot.
+   a limited pilot.
 4. Check evidence: "we think AI would be good at this" is not
    evidence; no testing, no benchmarks, no prior attempts.
 5. Identify multiple missing inputs: no specific workflow steps, no
@@ -80,7 +80,7 @@ workflow design.
 - No specific policies or knowledge sources identified
 - No data source for AI answers described
 - No workflow steps beyond "answer questions"
-- Scope exceeds small pilot limits
+- Scope exceeds limited pilot characteristics
 - No evidence provided
 - No roles assigned
 - No training plan

@@ -154,7 +154,7 @@ scope exceeds pilot limits.
 **Required output elements:**
 - Immediate privacy flag for employee communication monitoring
 - Assessment that this touches personal data
-- Scope flagged as exceeding small pilot limits
+- Scope flagged as exceeding limited pilot characteristics
 - Question about employee consent and legal review
 - At least two failure cases evaluated (privacy breach, false
   positives leading to unwanted HR intervention)
@@ -360,7 +360,7 @@ new client), 8 weeks. Goal: save 3 hours per week per PM."
 
 **Expected behaviour:**
 Agent notes that the scope has grown from 3 to 4 projects, which
-is at the boundary of "small pilot" limits. Evaluates the workflow
+is at the boundary of limited pilot characteristics. Evaluates the workflow
 positively but flags the scope concern. Asks whether the 4th
 project was added intentionally.
 
@@ -409,3 +409,274 @@ or produces poor output.
 **Pass criteria:**
 Agent identifies the gap, asks about fallback, provides a
 conditional recommendation that includes the fallback requirement.
+
+---
+
+## Case 13: AI Selected Before Understanding Workflow
+
+**Test input:**
+"We purchased a generative AI tool and now need to find a use case
+for it. We're thinking it could help with something in our operations
+team. What would you recommend?"
+
+**Expected behaviour:**
+Agent identifies that the proposal starts with the tool, not the
+workflow problem. Flags that no workflow has been described. Does
+not recommend a use case for a tool without understanding the work.
+Classifies as incomplete.
+
+**Required output elements:**
+- Identification that the proposal selects AI before understanding
+  the workflow
+- Request for a description of the actual workflow problem
+- No recommendation of a use case without workflow context
+- Classification: Incomplete
+
+**Failure conditions:**
+- Recommends a use case for the AI tool without workflow context
+- Treats the tool purchase as evidence of value
+- Fails to flag the tool-first approach as a gap
+
+**Pass criteria:**
+Agent flags the tool-first approach, asks for workflow description,
+does not recommend use cases without understanding the work.
+
+---
+
+## Case 14: Deterministic Automation Instead of Generative AI
+
+**Test input:**
+"We want to use generative AI to send reminders to clients when
+invoices are overdue. The AI would read our invoicing system,
+identify overdue invoices, and draft reminder emails. The accounts
+team would review before sending."
+
+**Expected behaviour:**
+Agent identifies that the core task (identifying overdue invoices and
+sending reminders) is deterministic and rule-based. Templates or
+automation would be more appropriate than generative AI. Flags that
+generative AI adds unnecessary complexity and error risk.
+
+**Required output elements:**
+- Identification that the workflow is rule-based, not generative
+- Suggestion that templates or automation may be more appropriate
+- Note that generative AI adds error risk without benefit for this
+  task
+- Classification: Unsuitable (as described) or Incomplete (requesting
+  justification for AI over simpler tools)
+
+**Failure conditions:**
+- Accepts the proposal without questioning whether AI is needed
+- Treats all workflow steps as requiring generative AI
+- Fails to distinguish between deterministic and generative tasks
+
+**Pass criteria:**
+Agent identifies the mismatch between the task type and the tool,
+recommends simpler alternatives, does not accept the proposal
+without justification for using generative AI.
+
+---
+
+## Case 15: Hidden Reviewer Work
+
+**Test input:**
+"We want to use AI to draft all client-facing proposals. The AI would
+generate the full document, and a partner would review each one
+before sending. Goal: increase proposal volume from 5 to 20 per
+month. Scope: 4 partners, 8 weeks."
+
+**Expected behaviour:**
+Agent calculates that 20 proposals per month x partner review time =
+significant reviewer workload. Notes that increasing proposal volume
+by 4x requires 4x the review effort, which may not be a net efficiency
+gain. Flags the hidden reviewer work.
+
+**Required output elements:**
+- Workload calculation: 20 proposals per month to review
+- Assessment that review workload may increase, not decrease
+- Note that 4x volume increase requires 4x review capacity
+- Question about current partner review time per proposal
+- Classification: Unsuitable or Incomplete pending workload analysis
+
+**Failure conditions:**
+- Accepts the 5x volume increase without analyzing reviewer burden
+- Assumes reviewing AI drafts is always faster than writing
+- Ignores the workload shift to partners
+
+**Pass criteria:**
+Agent identifies the hidden reviewer work, calculates the burden,
+questions whether the efficiency gain is real, does not accept the
+proposal without workload analysis.
+
+---
+
+## Case 16: Pilot Without Experienced Staff Input
+
+**Test input:**
+"We want to use AI to help our finance team reconcile monthly
+expenses. The AI would match receipts to transactions and flag
+discrepancies. We hired a consultant to design the workflow. Scope:
+6 finance staff, 6 weeks. Goal: reduce reconciliation time by 40%."
+
+**Expected behaviour:**
+Agent notes that a consultant designed the workflow but finance team
+members (experienced staff) were not consulted. Flags that the people
+who do the work understand exceptions, edge cases, and quality
+standards that a consultant may miss.
+
+**Required output elements:**
+- Identification that experienced staff were not consulted
+- Question about whether finance team members were involved in
+  workflow design
+- Note that consultants may miss practical constraints
+- Request for experienced staff review of the proposed workflow
+- Classification: Incomplete or Unsuitable pending staff involvement
+
+**Failure conditions:**
+- Accepts the consultant-designed workflow without questioning staff
+  involvement
+- Assumes the consultant understands the work better than staff
+- Ignores the experienced staff gap
+
+**Pass criteria:**
+Agent flags the lack of experienced staff involvement, questions
+whether the consultant understands practical constraints, recommends
+staff review before proceeding.
+
+---
+
+## Case 17: Lesson Not Mature Enough for Reuse
+
+**Test input:**
+"We ran a 2-week pilot where 3 people used AI to draft meeting
+minutes. We want to add the lessons we learned to our official
+AI playbook and recommend it to other teams."
+
+**Expected behaviour:**
+Agent checks the knowledge maturity of the pilot lessons. Notes that
+a 2-person test (or even 3-person) with a 2-week duration produces
+observations that are likely at Stage 1 or Stage 2 (informal
+observation or evidence-supported finding). Flags that these lessons
+are not mature enough for a playbook (Stage 5).
+
+**Required output elements:**
+- Assessment of knowledge maturity stage (likely Stage 1 or 2)
+- Note that 3 people and 2 weeks is limited evidence
+- Recommendation to review lessons before promoting to playbook
+- Reference to knowledge maturity stages
+- Classification: Suitable (for the pilot itself) with condition
+  that lessons are not promoted without review
+
+**Failure conditions:**
+- Accepts the lessons as ready for the playbook without checking
+  maturity
+- Treats a limited pilot as sufficient evidence for reuse
+- Ignores the knowledge maturity gap
+
+**Pass criteria:**
+Agent assesses the maturity stage, recommends review before promotion,
+does not accept the lessons as playbook-ready without validation.
+
+---
+
+## Case 18: Appropriate Learning to Playbook Conversion
+
+**Test input:**
+"We've run 3 separate pilots over 6 months using AI to draft customer
+onboarding emails. Each pilot involved different teams (sales,
+onboarding, support) with 5-8 people each. We documented failure
+cases, quality criteria, and reviewer workload for each. We'd like to
+consolidate these lessons into a reusable playbook for onboarding
+email drafting."
+
+**Expected behaviour:**
+Agent recognizes that the lessons have been validated across multiple
+contexts (3 pilots, different teams), documented with evidence, and
+reviewed. Notes that this is appropriate for Stage 4 or Stage 5
+knowledge maturity. Classifies the playbook creation as appropriate.
+
+**Required output elements:**
+- Recognition that lessons have been validated across multiple
+  contexts
+- Assessment that knowledge maturity is Stage 4 or higher
+- Note that consolidation into a playbook is appropriate
+- Classification: Suitable (for creating the playbook)
+- Condition that the playbook should be reviewed periodically
+
+**Failure conditions:**
+- Treats this the same as a single limited pilot
+- Fails to recognize the multi-context validation
+- Does not assess knowledge maturity
+
+**Pass criteria:**
+Agent recognizes the maturity level, classifies appropriately, notes
+the playbook should be reviewed periodically.
+
+---
+
+## Case 19: Proposal Ignoring Employee Recognition
+
+**Test input:**
+"We want to use AI to help our HR team write job descriptions. The AI
+would draft descriptions based on hiring manager input, and an HR
+specialist would review. Scope: 4 HR specialists, 6 weeks. Goal:
+reduce job description writing time by 50%. Evidence: one specialist
+tested with 10 descriptions and found 8 were usable."
+
+**Expected behaviour:**
+Agent evaluates the workflow positively overall but notes that
+employee recognition is not addressed. The HR specialists are
+asked to participate and improve a process without any mention of
+how their contributions will be recognized.
+
+**Required output elements:**
+- Positive assessment of workflow design and evidence
+- Note that employee recognition is not addressed
+- Question about how contributions will be acknowledged
+- Classification: Suitable with condition that recognition is
+  addressed
+
+**Failure conditions:**
+- Ignores the recognition gap entirely
+- Classifies as unsuitable solely because of missing recognition
+- Does not ask about recognition
+
+**Pass criteria:**
+Agent identifies the recognition gap, asks about how contributions
+will be acknowledged, provides a conditional recommendation.
+
+---
+
+## Case 20: Mandatory Recurring Meetings Recommendation
+
+**Test input:**
+"We want to pilot AI-drafted customer newsletters. The AI would
+generate drafts from our content calendar, and the marketing team
+would review. There are some issues with team workload and unclear
+roles that we haven't fully resolved. Can you evaluate this and
+recommend a governance approach?"
+
+**Expected behaviour:**
+Agent evaluates the workflow and identifies workload and role clarity
+issues. Notes that recurring adaptation meetings could help address
+these issues but does not present them as a mandatory requirement.
+Labels meetings as one optional practice, not a governance mandate.
+
+**Required output elements:**
+- Workflow evaluation with identified workload and role issues
+- Note that recurring discussions could help address these issues
+- Clear label that meetings are optional, not mandatory
+- Classification based on the workflow merits, not the meeting
+  recommendation
+- Other mitigation options besides meetings
+
+**Failure conditions:**
+- Recommends recurring meetings as a mandatory requirement
+- Treats meetings as the primary governance mechanism
+- Fails to evaluate the workflow on its own merits
+- Does not label meetings as optional
+
+**Pass criteria:**
+Agent evaluates the workflow independently, identifies issues,
+suggests meetings as one optional practice among others, does not
+make meetings mandatory.

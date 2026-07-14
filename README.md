@@ -4,7 +4,7 @@
 
 Organizations considering AI-assisted workflows often lack a
 structured way to evaluate whether a proposed workflow is suitable
-for a small pilot. Without a consistent review process, proposals
+for a limited pilot. Without a consistent review process, proposals
 may be approved without adequate evidence, approved with hidden
 risks, or rejected without proper analysis. This skill provides
 a repeatable, transparent evaluation framework.
@@ -15,14 +15,17 @@ This skill evaluates proposed AI-assisted workplace workflows and
 produces a structured review covering:
 
 - Completeness of the proposal
+- Workflow decomposition and tool selection
 - Quality of supporting evidence
 - Privacy and data handling implications
-- Foreseeable failure cases
+- Foreseeable failure cases and adoption risks
 - Human-review requirements
 - Employee and customer impact
-- Workload implications
+- Workload implications and reviewer burden
 - Role clarity and accountability
+- Staff trust, recognition, and incentives
 - Output quality standards
+- Knowledge maturity and lesson sharing
 - Approval readiness
 
 The skill classifies each proposal as:
@@ -48,19 +51,23 @@ The skill classifies each proposal as:
 
 ```
 ai-workflow-pilot-review/
-├── SKILL.md                    # Core skill instructions
+├── SKILL.md                         # Core skill instructions
 ├── references/
-│   ├── workflow-rules.md       # Workflow stages, decision rules,
-│   │                           # roles, approval boundaries
-│   ├── review-checklist.md     # Detailed evaluation checklist
-│   └── failure-cases.md        # 10 documented failure cases
+│   ├── workflow-rules.md            # Workflow stages, decision rules,
+│   │                                # roles, approval boundaries
+│   ├── review-checklist.md          # Detailed evaluation checklist
+│   ├── failure-cases.md             # 10 documented failure cases
+│   ├── pilot-selection-criteria.md  # Pilot readiness criteria
+│   ├── adoption-risk-types.md       # 12 adoption risk types
+│   ├── knowledge-review-guidance.md # Knowledge maturity stages
+│   └── method-notes.md              # Informal supporting methodology
 ├── examples/
-│   ├── suitable-example.md     # Example: AI ticket summarization
-│   ├── unsuitable-example.md   # Example: AI social media responses
-│   └── incomplete-example.md   # Example: AI onboarding assistant
+│   ├── suitable-example.md          # Example: AI ticket summarization
+│   ├── unsuitable-example.md        # Example: AI status reports
+│   └── incomplete-example.md        # Example: AI onboarding assistant
 ├── tests/
-│   └── evaluation-cases.md     # 12 test cases for evaluation
-└── README.md                   # This file
+│   └── evaluation-cases.md          # 20 test cases for evaluation
+└── README.md                        # This file
 ```
 
 ## How to Invoke or Test
@@ -126,9 +133,12 @@ under $100. No human review. Goal: instant refunds.
    identifies gaps, and does not present uncertain conclusions
    as facts.
 
-6. **Scope limited.** The skill evaluates "small pilot"
-   proposals (5-20 participants, 4-8 weeks, one team or
-   department). Larger proposals require separate evaluation.
+6. **Scope limited.** The skill evaluates limited pilot proposals.
+   A limited pilot is defined by characteristics (bounded workflow,
+   limited consequences, reversible outcomes, named owner and
+   reviewer, measurable baseline, manageable reviewer workload,
+   sufficient duration, explicit stop/revise criteria), not by
+   fixed participant counts or duration.
 
 ## Limitations
 
@@ -140,13 +150,52 @@ under $100. No human review. Goal: instant refunds.
   proposal quality and risk.
 - The skill does not replace legal, compliance, or HR review.
 
+## Supporting Methodology
+
+The file `references/method-notes.md` contains informal
+workflow-adoption guidance based on public learning materials.
+These notes informed the review criteria in this skill, particularly
+around:
+
+- Workflow-first AI adoption (start from problems, not tools)
+- Workflow decomposition (break work into steps before choosing tools)
+- Knowledge sources and evidence
+- Failure cases and human review
+- Employee workload, trust, role clarity, and recognition
+- Knowledge maturity and periodic review
+
+These notes are not a legal policy, formal research standard, or
+independently validated framework. They are informal learning
+material used to shape the skill's evaluation criteria. The skill
+remains advisory — domain owners must validate organization-specific
+rules, regulatory requirements, and operational constraints.
+
+### Source and Attribution
+
+The method notes are based on public videos from 株式会社AX:
+https://youtu.be/sY0gFHS-kL4?si=VeaS2DXC7HknSgVn
+
+- The material was used as informal learning input for this project.
+- The notes reflect the project author's interpretation of the
+  source material, not a direct translation or reproduction.
+- This project is independent and is not affiliated with or endorsed
+  by 株式会社AX.
+- This is not an official translation of the source material.
+
+The full attribution and independence statement are preserved in
+`references/method-notes.md`.
+
 ## How a Domain Owner Should Revise This Skill
 
 ### Adjust Scope Limits
 
-The current "small pilot" definition is 5-20 participants, 4-8
-weeks. Adjust these numbers to match your organization's
-capacity and risk tolerance.
+The skill defines a limited pilot by characteristics (bounded
+workflow, limited consequences, reversible outcomes, named owner
+and reviewer, measurable baseline, manageable reviewer workload,
+sufficient duration, explicit stop/revise criteria), not by fixed
+numbers. Record participant counts and duration as part of your
+proposal. Adjust the mandatory gates and advisory checks to match
+your organization's risk tolerance.
 
 ### Add Regulatory Frameworks
 
@@ -202,7 +251,7 @@ a structured business workflow artifact that:
    document that can be reviewed, challenged, and approved by
    humans. It is not a recommendation buried in a conversation.
 
-5. **Is testable.** The 12 evaluation cases provide concrete
+5. **Is testable.** The 20 evaluation cases provide concrete
    scenarios with pass/fail criteria, making it possible to
    verify that the skill works correctly and consistently.
 

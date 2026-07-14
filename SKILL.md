@@ -2,7 +2,7 @@
 name: ai-workflow-pilot-review
 description: >
   Activate when a user proposes an AI-assisted workplace workflow and asks
-  whether it is suitable for a small pilot. This includes requests to evaluate
+  whether it is suitable for a limited pilot. This includes requests to evaluate
   feasibility, risks, readiness, or to produce a pilot recommendation for any
   proposed AI-assisted process that would affect employees, customers, or
   internal operations.
@@ -44,6 +44,30 @@ Follow these steps in order. Do not skip steps.
   recommendation, approval, or execution.
 - Note whether the workflow touches sensitive data.
 
+### Step 1a: Workflow Analysis
+
+Before evaluating criteria, verify that the proposal addresses
+fundamental workflow questions:
+
+- Does the proposal begin with a concrete workflow problem (repeated,
+  time-consuming, or frustrating work), not with a tool preference?
+- Has the workflow been decomposed into individual steps?
+- Has each step been assigned to the appropriate type of support:
+  generative AI, search/retrieval, templates, deterministic
+  automation, or human judgment?
+- Are steps that require human judgment clearly identified?
+- Can the workflow be tested as a small and reversible improvement?
+- Can people familiar with the work review the proposed workflow?
+
+If the proposal selects AI before understanding the workflow, flag
+this as a significant gap. Not every workflow step requires generative
+AI — templates, search, or deterministic automation may be more
+appropriate.
+
+When assessing workflow design, organizational learning, employee
+impact, or the maturity of reusable knowledge, consult
+`references/method-notes.md`.
+
 ### Step 2: Gather Context
 
 - Ask clarifying questions if the description is ambiguous.
@@ -53,8 +77,9 @@ Follow these steps in order. Do not skip steps.
 
 ### Step 3: Evaluate Against Criteria
 
-Apply the review checklist in `references/review-checklist.md`. For each
-criterion, assign one of the following statuses:
+Apply the review checklist in `references/review-checklist.md` and the
+pilot selection criteria in `references/pilot-selection-criteria.md`.
+For each criterion, assign one of the following statuses:
 
 - **Met:** Evidence supports this criterion.
 - **Partially met:** Some evidence exists but gaps remain.
@@ -64,7 +89,9 @@ criterion, assign one of the following statuses:
 ### Step 4: Identify Failure Cases
 
 Compare the workflow against known failure patterns in
-`references/failure-cases.md`. For each applicable failure case:
+`references/failure-cases.md` and adoption risk types in
+`references/adoption-risk-types.md`. For each applicable failure case
+or risk type:
 
 - Describe how it could occur in this specific workflow.
 - Estimate the impact (low, medium, high).
@@ -75,6 +102,11 @@ Compare the workflow against known failure patterns in
 
 Verify that the workflow relies on approved knowledge sources only.
 See Section 4 for the approved list. Flag any unapproved sources.
+
+If the proposal references lessons, findings, or observations from
+prior work, check whether they have been reviewed using the maturity
+stages in `references/knowledge-review-guidance.md`. Unreviewed
+observations must not be treated as validated knowledge.
 
 ### Step 6: Apply Business Rules
 
@@ -93,6 +125,32 @@ Classify the workflow into one of three outcomes:
   recommend a pilot.
 - **Incomplete:** The proposal lacks sufficient information to
   evaluate. Request missing details before classifying.
+
+**Mandatory gates for "Suitable for pilot" classification:**
+
+All six of the following must be confirmed before a workflow can be
+classified as suitable for a limited pilot. If any gate is not met,
+classify as unsuitable or incomplete.
+
+1. **Accountable workflow owner is identified.** A specific person
+   is responsible for the workflow during and after the pilot.
+2. **Qualified human reviewer is available.** A person with relevant
+   expertise will review AI output before it is used.
+3. **Some supporting workflow evidence exists.** At least one piece
+   of evidence describes how the work currently happens or how the
+   proposed workflow was tested.
+4. **Required data use is approved.** The data the AI workflow needs
+   is available and its use has been authorized.
+5. **Stop or revise criteria are defined.** The pilot includes
+   explicit conditions under which it will be stopped or revised.
+6. **The workflow does not autonomously perform irreversible or
+   high-impact actions.** All consequential actions require human
+   approval.
+
+If the proposal references prior lessons or findings, note their
+knowledge maturity stage (see `references/knowledge-review-guidance.md`).
+Unreviewed observations should not be the sole basis for a suitability
+recommendation.
 
 ### Step 8: Generate Output
 
@@ -137,9 +195,19 @@ flag it as an unresolved assumption.
    human reviewer approves it.
 6. **Escalate, do not hide.** If a critical risk is found, escalate
    it. Do not downplay or omit it.
-7. **Scope limits.** "Small pilot" means 5-20 participants, 4-8
-   weeks, limited to one team or department. Proposals outside this
-   scope require separate evaluation.
+7. **Scope limits.** A limited pilot is defined by its characteristics,
+   not by participant counts or duration. A limited pilot has:
+   - Bounded workflow and user group
+   - Limited consequences
+   - Reversible outcomes
+   - Named owner and reviewer
+   - Measurable baseline
+   - Manageable reviewer workload
+   - Sufficient duration to collect evidence
+   - Explicit stop, revise, and escalation criteria
+
+   Participant counts and duration are domain-owner decisions, not
+   defaults. Record them as part of the proposal.
 8. **Privacy first.** If the workflow touches personal data, PII,
    financial data, health data, or authentication credentials, flag
    it immediately as a high-risk element.
@@ -239,7 +307,8 @@ when in doubt.
 Escalate immediately when:
 
 - The workflow involves sensitive data without clear privacy controls
-- The proposed scope exceeds the "small pilot" limits
+- The proposed scope does not meet the limited pilot characteristics
+  (see Section 5, rule 7)
 - The workflow involves autonomous decision-making with no human override
 - The agent detects a conflict of interest or ethical concern
 - The evidence contradicts the stated goal

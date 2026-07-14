@@ -96,4 +96,42 @@ one of these statuses:
 - [ ] Risks are within acceptable thresholds
 - [ ] Resources are available
 - [ ] Stakeholders are identified and aligned
-- [ ] The proposal is within "small pilot" scope
+- [ ] The proposal meets the limited pilot characteristics (bounded
+  workflow and user group, limited consequences, reversible outcomes,
+  named owner and reviewer, measurable baseline, manageable reviewer
+  workload, sufficient duration, explicit stop/revise criteria)
+
+## Workflow Governance Checks
+
+These checks are advisory by default. They help identify gaps and
+improvement opportunities. Answer each item with: Yes, No, Unknown,
+or Not applicable.
+
+| # | Check | Answer |
+|---|-------|--------|
+| 1 | Is the proposal based on evidence of how the work currently happens? | |
+| 2 | Has the workflow been broken into individual steps? | |
+| 3 | Has each step been assigned to the appropriate type of support (generative AI, search, templates, automation, human judgment)? | |
+| 4 | Have experienced staff reviewed the proposed workflow? | |
+| 5 | Are important exceptions and failure cases documented? | |
+| 6 | Has the expected reviewer workload been estimated? | |
+| 7 | Could the proposal increase workload despite claimed efficiency? | |
+| 8 | Is there a plan to recognize employee contributions to workflow improvement? | |
+| 9 | Are reusable lessons separated from informal or unvalidated observations? | |
+| 10 | Is there a date or trigger for reviewing accumulated knowledge? | |
+| 11 | Are AI outputs still treated as drafts or recommendations? | |
+
+## Mandatory Gates for Pilot Classification
+
+The following six gates must all be confirmed before a workflow can
+be classified as "Suitable for pilot." If any gate is not met, the
+workflow cannot receive that classification.
+
+| # | Gate | Confirmed |
+|---|------|-----------|
+| 1 | Accountable workflow owner is identified | |
+| 2 | Qualified human reviewer is available | |
+| 3 | Some supporting workflow evidence exists | |
+| 4 | Required data use is approved | |
+| 5 | Stop or revise criteria are defined | |
+| 6 | Workflow does not autonomously perform irreversible or high-impact actions | |

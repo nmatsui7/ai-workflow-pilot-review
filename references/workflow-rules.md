@@ -51,7 +51,7 @@ Optional but helpful:
 - Failure cases identified with mitigations
 - Human override exists for all AI decisions
 - Roles and responsibilities defined
-- Scope within "small pilot" limits
+- Scope meets limited pilot characteristics (see rule 7 in SKILL.md)
 
 ### Risk Thresholds
 
@@ -135,7 +135,7 @@ The agent must not:
 | Trigger | Action |
 |---------|--------|
 | Sensitive data without privacy controls | Escalate immediately |
-| Scope exceeds small pilot limits | Escalate; note scope concern |
+| Scope does not meet limited pilot characteristics | Escalate; note scope concern |
 | Autonomous decisions with no human override | Escalate; flag safety risk |
 | Evidence contradicts stated goal | Escalate; note inconsistency |
 | Conflicting stakeholder requirements | Escalate; note conflict |
