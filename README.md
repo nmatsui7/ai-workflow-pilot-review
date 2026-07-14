@@ -30,12 +30,16 @@ produces a structured review covering:
 
 The skill classifies each proposal as:
 
-- **Suitable for pilot** - meets critical criteria, risks are
-  manageable, proceed with conditions
-- **Unsuitable for pilot** - critical criteria not met, risks
-  too high, do not recommend
-- **Incomplete** - insufficient information to evaluate, request
-  missing details
+- **Candidate for limited pilot** - meets mandatory gates, risks
+  are manageable, proceed with conditions
+- **Needs further discovery** - proposal has merit but requires
+  additional information or evidence
+- **Needs governance or policy review** - requires organizational
+  decisions or compliance review
+- **Not currently suitable** - critical criteria not met, needs
+  significant revision
+- **Reject due to excessive risk or autonomy** - unacceptable risk
+  or fundamental design flaws
 
 ## What the Skill Does Not Do
 
@@ -46,6 +50,11 @@ The skill classifies each proposal as:
 - It does not allocate budgets or resources
 - It does not produce final decisions (all recommendations
   require human approval)
+
+This skill structures evidence, risks, knowledge requirements,
+human-review boundaries, and pilot-readiness questions. It does not
+approve implementation, enforce policy, or replace accountable human
+decision-makers.
 
 ## Folder Structure
 
@@ -60,6 +69,7 @@ ai-workflow-pilot-review/
 │   ├── pilot-selection-criteria.md  # Pilot readiness criteria
 │   ├── adoption-risk-types.md       # 12 adoption risk types
 │   ├── knowledge-review-guidance.md # Knowledge maturity stages
+│   ├── output-template.md           # Expected output structure
 │   └── method-notes.md              # Informal supporting methodology
 ├── examples/
 │   ├── suitable-example.md              # Example: AI ticket summarization
@@ -68,7 +78,7 @@ ai-workflow-pilot-review/
 │   ├── needs-further-discovery-input.md # Example: complaint triage proposal
 │   └── needs-further-discovery-expected-review.md
 ├── tests/
-│   └── evaluation-cases.md          # 22 test cases for evaluation
+│   └── evaluation-cases.md          # 24 test cases for evaluation
 └── README.md                        # This file
 ```
 
@@ -79,6 +89,21 @@ ai-workflow-pilot-review/
 Provide the skill to an AI agent that supports the SKILL.md pattern.
 The agent will activate when it detects a request to evaluate an
 AI-assisted workflow.
+
+### How References Are Loaded
+
+The agent loads reference files as needed during the review:
+- `references/review-checklist.md` — evaluated in Step 3
+- `references/pilot-selection-criteria.md` — evaluated in Step 3
+- `references/failure-cases.md` — consulted in Step 4
+- `references/adoption-risk-types.md` — consulted in Step 4
+- `references/knowledge-review-guidance.md` — consulted in Steps 5 and 7
+- `references/workflow-rules.md` — applied in Step 6
+- `references/output-template.md` — used to structure output in Step 8
+- `references/method-notes.md` — consulted for workflow analysis guidance
+
+The agent does not need to load all references simultaneously. It
+loads the relevant reference at each step of the review sequence.
 
 ### Test Prompt
 
@@ -112,6 +137,25 @@ department. Can you help us evaluate if it's a good idea?
 We want AI to automatically approve all customer refund requests
 under $100. No human review. Goal: instant refunds.
 ```
+
+## Mandatory Gates vs Advisory Criteria
+
+A proposal must satisfy all six mandatory gates before it can receive
+the classification "Candidate for limited pilot." If any gate is not
+met, the agent uses an alternative classification.
+
+| # | Mandatory Gate |
+|---|---------------|
+| 1 | An accountable workflow owner is identified |
+| 2 | A qualified human reviewer is available |
+| 3 | Some credible workflow evidence exists |
+| 4 | Required data access and use have been approved |
+| 5 | The workflow does not autonomously perform irreversible or high-impact actions |
+| 6 | Explicit stop, revise, or escalation criteria exist |
+
+All other checklist items are advisory. They help identify gaps,
+risks, and improvement opportunities but do not block classification
+on their own.
 
 ## Safety and Governance Boundaries
 
@@ -151,6 +195,25 @@ under $100. No human review. Goal: instant refunds.
 - The skill cannot predict real-world outcomes; it evaluates
   proposal quality and risk.
 - The skill does not replace legal, compliance, or HR review.
+
+## Knowledge-Maturity Model
+
+The skill evaluates whether accumulated workflow knowledge has
+progressed through five maturity stages:
+
+1. **Informal observation** — individual note, no review required
+2. **Evidence-supported finding** — supported by at least one
+   additional evidence source
+3. **Reviewed workflow lesson** — reviewed by someone other than
+   the original author
+4. **Approved reusable example** — validated across multiple
+   contexts or by multiple reviewers
+5. **Playbook, SKILL.md instruction, or retrieval source** —
+   incorporated into a formal, maintainable knowledge artifact
+
+Progression is not automatic. Each stage requires human review and
+appropriate evidence. See `references/knowledge-review-guidance.md`
+for full details.
 
 ## Supporting Methodology
 
@@ -198,6 +261,14 @@ sufficient duration, explicit stop/revise criteria), not by fixed
 numbers. Record participant counts and duration as part of your
 proposal. Adjust the mandatory gates and advisory checks to match
 your organization's risk tolerance.
+
+### Adjust Classification Labels
+
+The five classification labels (Candidate for limited pilot, Needs
+further discovery, Needs governance or policy review, Not currently
+suitable, Reject due to excessive risk or autonomy) are standardized
+across the skill. If your organization uses different terminology,
+update all files consistently.
 
 ### Add Regulatory Frameworks
 
@@ -253,7 +324,7 @@ a structured business workflow artifact that:
    document that can be reviewed, challenged, and approved by
    humans. It is not a recommendation buried in a conversation.
 
-5. **Is testable.** The 22 evaluation cases provide concrete
+5. **Is testable.** The 24 evaluation cases provide concrete
    scenarios with pass/fail criteria, making it possible to
    verify that the skill works correctly and consistently.
 
@@ -261,6 +332,10 @@ a structured business workflow artifact that:
    (SKILL.md), detailed rules (references/), examples
    (examples/), and tests (tests/) makes it possible to update
    individual components without rewriting the entire skill.
+
+7. **Uses standardized classification vocabulary.** The five
+   classification labels are consistent across SKILL.md, examples,
+   reference files, and evaluation cases.
 
 This is the difference between a prompt and a business workflow
 artifact: a prompt asks an AI to do something. A workflow

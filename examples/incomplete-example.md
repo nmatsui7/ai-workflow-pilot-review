@@ -1,4 +1,4 @@
-# Example: Incomplete
+# Example: Needs Further Discovery
 
 ## Input
 
@@ -30,7 +30,7 @@ The agent would:
 5. Identify multiple missing inputs: no specific workflow steps, no
    data sources described, no fallback plan, no training plan, no
    role assignments.
-6. Classify as "incomplete" and request missing information.
+6. Classify as "needs further discovery" and request missing information.
 
 ## Expected Output
 
@@ -44,7 +44,7 @@ evaluate. Critical information is missing about data sources,
 workflow design, scope, and evidence.
 
 ## Classification
-Incomplete
+Needs further discovery
 
 ## Workflow Analysis
 - **Core action:** Answer new hire questions about policies
@@ -56,21 +56,21 @@ Incomplete
   pilot limits
 
 ## Evidence Assessment
-- **Completeness:** Not met - description is too vague to evaluate
-- **Factual support:** Not met - no evidence provided; statement
+- **Completeness:** No — description is too vague to evaluate
+- **Factual support:** No — no evidence provided; statement
   of belief ("we think AI would be good at this") is not evidence
-- **Source quality:** N/A - no sources cited
-- **Privacy:** Unknown - cannot assess without knowing what data
+- **Source quality:** N/A — no sources cited
+- **Privacy:** Unknown — cannot assess without knowing what data
   the AI would access
-- **Failure cases:** Not met - no failure cases identified
-- **Human review:** Unknown - no review process described
-- **Employee impact:** Unknown - impact on new hires and HR not
+- **Failure cases:** No — no failure cases identified
+- **Human review:** Unknown — no review process described
+- **Employee impact:** Unknown — impact on new hires and HR not
   assessed
-- **Workload:** Unknown - training needs not assessed
-- **Role clarity:** Not met - no roles assigned
-- **Accessibility:** Unknown - not addressed
-- **Output quality:** Unknown - no quality standards defined
-- **Approval readiness:** Not met - proposal is too incomplete
+- **Workload:** Unknown — training needs not assessed
+- **Role clarity:** No — no roles assigned
+- **Accessibility:** Unknown — not addressed
+- **Output quality:** Unknown — no quality standards defined
+- **Approval readiness:** No — proposal is too incomplete
 
 ## Failure Cases
 Cannot evaluate failure cases without more information about the
@@ -102,8 +102,8 @@ workflow design.
 7. What happens if the AI gives incorrect policy information?
 
 ## Recommendation
-Cannot classify this proposal as suitable or unsuitable without
-additional information. The proposal needs:
+Cannot classify this proposal without additional information. The
+proposal needs:
 
 1. A specific workflow description with step-by-step process
 2. Identification of knowledge sources (what policies, in what

@@ -81,10 +81,13 @@ Apply the review checklist in `references/review-checklist.md` and the
 pilot selection criteria in `references/pilot-selection-criteria.md`.
 For each criterion, assign one of the following statuses:
 
-- **Met:** Evidence supports this criterion.
-- **Partially met:** Some evidence exists but gaps remain.
-- **Not met:** No evidence or clear deficiency.
+- **Yes:** Evidence supports this criterion.
+- **No:** No evidence or clear deficiency.
+- **Unknown:** Insufficient information to assess.
 - **Not applicable:** Criterion does not apply to this workflow.
+
+For nuanced findings, add a brief evidence or notes field rather
+than inventing additional status labels.
 
 ### Step 4: Identify Failure Cases
 
@@ -115,22 +118,27 @@ cannot be satisfied, document why and recommend a mitigation.
 
 ### Step 7: Classify and Recommend
 
-Classify the workflow into one of three outcomes:
+Classify the workflow into one of five outcomes:
 
-- **Suitable for pilot:** All critical criteria are met or have
-  acceptable mitigations. Risks are manageable. Proceed with
-  conditions.
-- **Unsuitable for pilot:** Critical criteria are not met, risks
-  are too high, or the proposal is fundamentally flawed. Do not
-  recommend a pilot.
-- **Incomplete:** The proposal lacks sufficient information to
-  evaluate. Request missing details before classifying.
+- **Candidate for limited pilot:** All mandatory gates are met or have
+  acceptable mitigations. Risks are manageable. Proceed with conditions.
+- **Needs further discovery:** The proposal has merit but requires
+  additional information, evidence, or analysis before a classification
+  can be assigned.
+- **Needs governance or policy review:** The proposal requires
+  organizational decisions, policy clarification, or compliance review
+  before it can proceed.
+- **Not currently suitable:** Critical criteria are not met, risks
+  are too high, or the proposal needs significant revision.
+- **Reject due to excessive risk or autonomy:** The proposal involves
+  unacceptable risk, autonomous irreversible actions, or fundamental
+  design flaws that cannot be mitigated.
 
-**Mandatory gates for "Suitable for pilot" classification:**
+**Mandatory gates for "Candidate for limited pilot" classification:**
 
 All six of the following must be confirmed before a workflow can be
-classified as suitable for a limited pilot. If any gate is not met,
-classify as unsuitable or incomplete.
+classified as a candidate for a limited pilot. If any gate is not met,
+use an alternative classification.
 
 1. **Accountable workflow owner is identified.** A specific person
    is responsible for the workflow during and after the pilot.
@@ -232,58 +240,8 @@ flag it as an unresolved assumption.
 
 ## 6. Expected Output Structure
 
-The agent must produce output in this structure:
-
-```
-# Workflow Pilot Review: [Workflow Name]
-
-## Summary
-[One-paragraph description of the workflow and the recommendation]
-
-## Classification
-[Suitable for pilot | Unsuitable for pilot | Incomplete]
-
-## Workflow Analysis
-- **Core action:** [What the AI does]
-- **Workflow type:** [Information retrieval | Drafting | Recommendation | Approval | Execution]
-- **Affected roles:** [List of roles]
-- **Sensitive data involved:** [Yes/No + type if yes]
-- **Scope:** [Number of participants, duration, systems]
-
-## Evidence Assessment
-[For each criterion from the review checklist:]
-- **Criterion:** [Status] - [Evidence summary or gap]
-
-## Failure Cases
-[For each applicable failure case:]
-- **Scenario:** [Description]
-- **Impact:** [Low | Medium | High]
-- **Detection:** [How it could be detected]
-- **Mitigation:** [Recommended action]
-
-## Risks and Gaps
-[Summary of identified risks, gaps, and unresolved questions]
-
-## Questions for Domain Owner
-[Specific questions that need answers before a decision can be made]
-
-## Recommendation
-[Detailed recommendation with conditions, if any]
-
-## Knowledge Accumulation
-- **Mechanism exists:** [Yes/No]
-- **Knowledge captured:** [What is recorded: source evidence, decisions,
-  feedback, failure cases, lessons, approved guidance]
-- **Storage or repository:** [Where knowledge is stored]
-- **Source traceability:** [Whether source references are preserved]
-- **Review owner:** [Who reviews accumulated knowledge]
-- **Update or stale-review process:** [How knowledge is kept current]
-- **Reuse path:** [How reviewed lessons become reusable guidance]
-- **Identified gaps:** [What is missing or not yet captured]
-
-## Human-Review Checkpoints
-[List of items requiring human review before proceeding]
-```
+Produce the structured output described in `references/output-template.md`.
+Adapt the sections as needed for the specific workflow under review.
 
 ## 7. Human-Review Checkpoints
 
@@ -354,7 +312,7 @@ When escalating, state:
 Before presenting the output, verify:
 
 - [ ] All required inputs were received or flagged as missing
-- [ ] Each review criterion has a status (Met, Partially met, Not met, N/A)
+- [ ] Each review criterion has a status (Yes, No, Unknown, N/A)
 - [ ] At least one failure case was evaluated
 - [ ] Privacy implications are addressed
 - [ ] All assumptions are labeled

@@ -1,4 +1,4 @@
-# Example: Unsuitable for Pilot
+# Example: Not Currently Suitable
 
 ## Input
 
@@ -51,7 +51,7 @@ The agent would:
    knowledge.
 7. Note that the proposal selects AI before understanding the workflow
    — it starts with the tool, not the problem.
-8. Classify as "unsuitable for pilot" due to multiple critical gaps.
+8. Classify as "not currently suitable" due to multiple critical gaps.
 
 ## Expected Output
 
@@ -66,7 +66,7 @@ reviewer workload, and an attempt to promote unreviewed observations
 to formal policy.
 
 ## Classification
-Unsuitable for pilot
+Not currently suitable
 
 ## Workflow Analysis
 - **Core action:** Draft status reports from project management data
@@ -85,29 +85,29 @@ Unsuitable for pilot
 - Decomposition is incomplete — critical steps are not described
 
 ## Evidence Assessment
-- **Completeness:** Partially met - scope and goal stated, but
+- **Completeness:** Partially — scope and goal stated, but
   workflow steps are vague
-- **Factual support:** Not met - intern test with 3 reports is too
+- **Factual support:** No — intern test with 3 reports is too
   small a sample; no quality criteria defined; no baseline measured
-- **Source quality:** Not met - intern is not an experienced staff
+- **Source quality:** No — intern is not an experienced staff
   member for this workflow; "looked pretty good" is not a quality
   standard
-- **Privacy:** Unknown - project data sensitivity not assessed
-- **Failure cases:** Not met - no failure cases identified
-- **Human review:** Partially met - coordinator reviews, but review
+- **Privacy:** Unknown — project data sensitivity not assessed
+- **Failure cases:** No — no failure cases identified
+- **Human review:** Partially — coordinator reviews, but review
   criteria are undefined
-- **Employee impact:** Unknown - coordinator workload not assessed
-- **Workload:** Not met - reviewer workload for 12 projects not
+- **Employee impact:** Unknown — coordinator workload not assessed
+- **Workload:** No — reviewer workload for 12 projects not
   estimated; efficiency gain is questionable
-- **Role clarity:** Not met - project managers were not consulted;
+- **Role clarity:** No — project managers were not consulted;
   coordinator role is assumed, not confirmed
-- **Recognition:** Not met - no recognition for coordinator's
+- **Recognition:** No — no recognition for coordinator's
   additional review work
-- **Knowledge sharing:** Not met - intern note is planned for
+- **Knowledge sharing:** No — intern note is planned for
   promotion to playbook without review
-- **Output quality:** Not met - no quality standards for AI-generated
+- **Output quality:** No — no quality standards for AI-generated
   reports
-- **Approval readiness:** Not met - multiple critical criteria
+- **Approval readiness:** No — multiple critical criteria
   failures
 
 ## Failure Cases

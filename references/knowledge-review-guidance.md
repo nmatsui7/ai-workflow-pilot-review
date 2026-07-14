@@ -1,6 +1,6 @@
 # Knowledge Review Guidance
 
-Workflow observations accumulate during pilots and日常 operations.
+Workflow observations accumulate during pilots and day-to-day operations.
 Not all observations are equally reliable or reusable. This file
 describes how observations may progress through maturity stages
 before they are treated as validated, reusable knowledge.
@@ -24,7 +24,8 @@ hypotheses or identify areas for further investigation.
 incorrect. Must not be treated as validated knowledge.
 
 **Review or stale-date requirements:** None required, but should be
-reviewed within 30 days if it is going to be referenced again.
+reviewed before reuse, or according to a stale-review period defined
+and approved by the domain owner.
 
 **Conditions for promotion:** Must be supported by at least one
 additional evidence source or observation to move to Stage 2.
@@ -51,9 +52,10 @@ assessments, and internal discussions. Must be labeled as
 context-specific. Must not be generalized beyond the context in
 which it was gathered.
 
-**Review or stale-date requirements:** Should be reviewed within
-90 days. Evidence should be rechecked if the workflow or context
-changes.
+**Review or stale-date requirements:** Should be reviewed before
+reuse, or according to a stale-review period defined and approved
+by the domain owner. Evidence should be rechecked if the workflow
+or context changes.
 
 **Conditions for promotion:** Must be reviewed by someone other
 than the original author and found to be accurate and appropriately
@@ -81,8 +83,9 @@ and review date.
 they were reviewed. Changes in tools, processes, or team composition
 may affect applicability.
 
-**Review or stale-date requirements:** Should be reviewed every
-6 months or when the underlying workflow changes significantly.
+**Review or stale-date requirements:** Should be reviewed according
+to a schedule defined and approved by the domain owner, or when the
+underlying workflow changes significantly.
 
 **Conditions for promotion:** Must be validated across multiple
 contexts or confirmed by multiple reviewers to move to Stage 4.
@@ -109,9 +112,9 @@ include attribution, review date, and context of validity.
 They are reference guidance that should be adapted to local context.
 They do not replace legal, compliance, or HR review.
 
-**Review or stale-date requirements:** Should be reviewed annually
-or when the underlying technology, process, or regulatory environment
-changes.
+**Review or stale-date requirements:** Should be reviewed according
+to a schedule defined and approved by the domain owner, or when the
+underlying technology, process, or regulatory environment changes.
 
 **Conditions for promotion:** May be incorporated into formal
 playbooks, SKILL.md instructions, or retrieval sources if it
@@ -141,8 +144,7 @@ They are valid only as long as the underlying assumptions hold.
 They do not replace human judgment for novel or ambiguous situations.
 
 **Review or stale-date requirements:** Per the artifact's review
-schedule. At minimum, annual review for playbooks and SKILL.md
-instructions.
+schedule, as defined and approved by the domain owner.
 
 **Conditions for promotion:** This is the terminal stage.
 No further promotion is needed.

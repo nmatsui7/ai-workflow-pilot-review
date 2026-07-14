@@ -1,4 +1,4 @@
-# Example: Suitable for Pilot
+# Example: Candidate for Limited Pilot
 
 ## Input
 
@@ -63,7 +63,7 @@ The agent would:
    reviewer workload (estimated and manageable).
 6. Verify scope is within pilot limits (8 agents, 6 weeks, one team).
 7. Note lesson recording plan and recognition for participants.
-8. Classify as "suitable for pilot" with conditions.
+8. Classify as "candidate for limited pilot" with conditions.
 
 ## Expected Output
 
@@ -78,7 +78,7 @@ review at every step, and has a plan for recording lessons and
 recognizing participants.
 
 ## Classification
-Suitable for pilot
+Candidate for limited pilot
 
 ## Workflow Analysis
 - **Core action:** Generate draft summaries of support tickets
@@ -95,28 +95,28 @@ Suitable for pilot
 - Each step assigned to appropriate support type
 
 ## Evidence Assessment
-- **Completeness:** Met - description, scope, and goal are clear
-- **Factual support:** Met - internal test with 50 tickets, two
+- **Completeness:** Yes — description, scope, and goal are clear
+- **Factual support:** Yes — internal test with 50 tickets, two
   senior agents, time and quality measured
-- **Source quality:** Met - evidence from experienced staff, internal
+- **Source quality:** Yes — evidence from experienced staff, internal
   test, relevant context
-- **Privacy:** Partially met - customer data in Zendesk, no external
+- **Privacy:** Partially — customer data in Zendesk, no external
   data flow described
-- **Failure cases:** Met - hallucination risk mitigated by human
+- **Failure cases:** Yes — hallucination risk mitigated by human
   review; edge cases identified by experienced staff
-- **Human review:** Met - agents review and edit every summary
-- **Employee impact:** Positive - reduces repetitive summarization
-- **Workload:** Met - reviewer workload estimated (12 seconds per
+- **Human review:** Yes — agents review and edit every summary
+- **Employee impact:** Positive — reduces repetitive summarization
+- **Workload:** Yes — reviewer workload estimated (12 seconds per
   summary including review), manageable within existing duties
-- **Role clarity:** Met - agents review, senior agents validate edge
+- **Role clarity:** Yes — agents review, senior agents validate edge
   cases, weekly review meeting planned
-- **Recognition:** Met - voluntary participation, monthly recognition
+- **Recognition:** Yes — voluntary participation, monthly recognition
   spotlight
-- **Knowledge sharing:** Met - lessons logged in shared spreadsheet,
+- **Knowledge sharing:** Yes — lessons logged in shared spreadsheet,
   weekly review, source references preserved
-- **Output quality:** Met - quality criteria defined with edge cases
+- **Output quality:** Yes — quality criteria defined with edge cases
   from experienced staff
-- **Approval readiness:** Met - all critical criteria satisfied
+- **Approval readiness:** Yes — all critical criteria satisfied
 
 ## Failure Cases
 - **Hallucinated summary:** Low impact, detected by agent review

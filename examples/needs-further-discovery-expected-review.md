@@ -36,8 +36,7 @@ The agent would:
    burden), unclear expectations (disagreement resolution undefined),
    role confusion (owner not named), training gap (no plan), lack
    of recognition, evaluation ambiguity (no baselines).
-9. Classify as "Needs further discovery and governance or policy
-   review before it can become a candidate for a limited pilot."
+9. Classify as "needs further discovery."
 
 ## Expected Output
 
@@ -57,8 +56,7 @@ baseline measurements exist, data-use authorization is pending, and
 multiple governance decisions remain unresolved.
 
 ## Classification
-Needs further discovery and governance or policy review before it
-can become a candidate for a limited pilot.
+Needs further discovery
 
 ## Workflow Analysis
 - **Core action:** Summarize, categorize, route, and draft
@@ -103,36 +101,36 @@ humans handle judgment and approval. No autonomous irreversible action.
   accumulation
 
 ## Evidence Assessment
-- **Completeness:** Met — workflow decomposed, scope defined, goals
+- **Completeness:** Yes — workflow decomposed, scope defined, goals
   stated, exclusions identified
-- **Factual support:** Partially met — operational experience with
+- **Factual support:** Partially — operational experience with
   300 complaints/week, but no baseline measurements; no prior AI
   testing; benefits not measured
-- **Source quality:** Partially met — experienced staff listed as
+- **Source quality:** Partially — experienced staff listed as
   knowledge source; some escalation procedures outdated (3 years);
   categories applied inconsistently
-- **Privacy:** Partially met — PII and vulnerable-customer data
+- **Privacy:** Partially — PII and vulnerable-customer data
   involved; past resolutions contain personal information; no
   anonymization plan described
-- **Failure cases:** Met — 10 risks identified by the proposal;
+- **Failure cases:** Yes — 10 risks identified by the proposal;
   additional failure cases identifiable
-- **Human review:** Met — all AI suggestions require employee review;
+- **Human review:** Yes — all AI suggestions require employee review;
   accept/edit/reject mechanism defined
-- **Employee impact:** Partially met — benefits described but not
+- **Employee impact:** Partially — benefits described but not
   measured; workload impact of reviewing ~300 AI suggestions/week
   not estimated
-- **Workload:** Partially met — reviewing 300 complaints/week of AI
+- **Workload:** Partially — reviewing 300 complaints/week of AI
   suggestions is significant; per-complaint review time not
   estimated; documentation of corrections adds effort
-- **Role clarity:** Partially met — employees review, departments
+- **Role clarity:** Partially — employees review, departments
   follow up; but accountable owner not named; disagreement resolution
   undefined; accountability for misrouting unclear
-- **Output quality:** Partially met — AI outputs described; quality
+- **Output quality:** Partially — AI outputs described; quality
   standards not defined; generic acknowledgements flagged as risk
-- **Knowledge accumulation:** Met — detailed plan for capturing
+- **Knowledge accumulation:** Yes — detailed plan for capturing
   corrections, failure cases, and lessons; monthly review group;
   reuse path defined; governance gaps exist but plan is substantive
-- **Approval readiness:** Partially met — strong workflow design;
+- **Approval readiness:** Partially — strong workflow design;
   multiple governance decisions unresolved
 
 ## Failure Cases
@@ -261,10 +259,9 @@ data-use approval), and several governance decisions remain
 unresolved (disagreement resolution, review time limits, anchoring
 mitigation, accountability for errors).
 
-**Classify as "Needs further discovery and governance or policy
-review before it can become a candidate for a limited pilot."**
+**Classify as "needs further discovery."**
 
-Before reclassifying, complete:
+Before reclassifying as a candidate for limited pilot, complete:
 
 1. Name the accountable workflow owner
 2. Complete baseline measurements

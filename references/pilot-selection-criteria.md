@@ -1,8 +1,8 @@
 # Pilot Selection Criteria
 
 Use these criteria to assess whether a proposed workflow is suitable
-for a limited pilot. Each criterion should be evaluated as Met,
-Partially met, Not met, or N/A.
+for a limited pilot. Each criterion should be evaluated as Yes,
+No, Unknown, or N/A.
 
 ## Workflow Evidence
 

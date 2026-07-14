@@ -14,7 +14,7 @@ Every proposed workflow must be evaluated through these stages:
 | **Readiness** | Are resources, training, and roles in place? | Readiness checklist completed |
 | **Recommendation** | Should this proceed to pilot? | Classification assigned |
 
-If any stage produces a "Not met" or "Incomplete" status, the workflow
+If any stage produces a "No" or "Unknown" status, the workflow
 cannot be recommended for pilot without addressing the gap.
 
 ## 2. Required Inputs
@@ -39,11 +39,11 @@ Optional but helpful:
 
 | Condition | Classification |
 |-----------|---------------|
-| All critical criteria met, risks manageable, evidence present | Suitable for pilot |
-| One or more critical criteria not met, or high-impact risk with no mitigation | Unsuitable for pilot |
-| Required inputs missing, or evidence cannot be assessed | Incomplete |
+| All critical criteria met, risks manageable, evidence present | Candidate for limited pilot |
+| One or more critical criteria not met, or high-impact risk with no mitigation | Not currently suitable |
+| Required inputs missing, or evidence cannot be assessed | Needs further discovery |
 
-### Critical Criteria (must be met for "Suitable")
+### Critical Criteria (must be met for "Candidate")
 
 - Clear problem statement with measurable goal
 - At least one piece of supporting evidence

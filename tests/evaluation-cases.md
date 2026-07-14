@@ -18,18 +18,18 @@ team lead manually tested this with 10 past meetings and found 8 of
 **Expected behaviour:**
 Agent classifies as drafting workflow, evaluates evidence positively,
 identifies low risk (human review, no sensitive data, small scope),
-classifies as suitable for pilot with conditions.
+classifies as candidate for limited pilot with conditions.
 
 **Required output elements:**
-- Classification: Suitable for pilot
-- Evidence assessment showing "Met" or "Partially met" for most
+- Classification: Candidate for limited pilot
+- Evidence assessment showing "Yes" or "Unknown" for most
   criteria
 - At least one failure case evaluated
 - Human-review checkpoints listed
 - Conditions or questions for domain owner
 
 **Failure conditions:**
-- Classifies as unsuitable without justification
+- Classifies as not currently suitable without justification
 - Omits evidence assessment
 - Fails to identify that the AI is drafting (not executing)
 - Produces output without human-review checkpoints
@@ -49,11 +49,11 @@ with employee stuff."
 
 **Expected behaviour:**
 Agent recognizes the input is too vague to evaluate. Identifies
-specific missing information. Classifies as incomplete. Does not
-guess or assume what the workflow is.
+specific missing information. Classifies as needs further discovery.
+Does not guess or assume what the workflow is.
 
 **Required output elements:**
-- Classification: Incomplete
+- Classification: Needs further discovery
 - List of specific questions about what the AI would do
 - List of specific questions about scope, evidence, and goals
 - No fabricated recommendation
@@ -65,7 +65,7 @@ guess or assume what the workflow is.
 
 **Pass criteria:**
 Agent asks for clarification, identifies at least 5 specific
-missing pieces of information, classifies as incomplete, does
+missing pieces of information, classifies as needs further discovery, does
 not produce a recommendation.
 
 ---
@@ -81,11 +81,12 @@ would work."
 
 **Expected behaviour:**
 Agent notes the workflow is well-described but lacks evidence.
-Classifies evidence as "Not met." Either classifies as incomplete
-or suitable with a strong condition that evidence must be gathered.
+Classifies evidence as "No." Either classifies as needs further
+discovery or candidate with a strong condition that evidence must
+be gathered.
 
 **Required output elements:**
-- Evidence assessment showing "Not met" for factual support
+- Evidence assessment showing "No" for factual support
 - Specific recommendation to gather evidence before or during pilot
 - At least one failure case evaluated (prediction accuracy,
   misidentification of at-risk customers)
@@ -94,7 +95,7 @@ or suitable with a strong condition that evidence must be gathered.
 **Failure conditions:**
 - Ignores the missing evidence
 - Assumes the workflow would work without evidence
-- Classifies as suitable without noting the evidence gap
+- Classifies as candidate without noting the evidence gap
 
 **Pass criteria:**
 Agent explicitly identifies the evidence gap, does not treat
@@ -117,6 +118,7 @@ Flags the vendor benchmark as not independent. Evaluates bias risk.
 Does not resolve the conflict by choosing one source over the other.
 
 **Required output elements:**
+- Classification: Needs further discovery (conflicts must be resolved)
 - Identification of the conflict between HR and legal perspectives
 - Assessment that vendor benchmark is not independent evidence
 - Privacy and bias evaluation
@@ -152,6 +154,8 @@ Evaluates whether employee consent exists. Notes the company-wide
 scope exceeds pilot limits.
 
 **Required output elements:**
+- Classification: Not currently suitable (or Reject if scope and
+  privacy cannot be mitigated)
 - Immediate privacy flag for employee communication monitoring
 - Assessment that this touches personal data
 - Scope flagged as exceeding limited pilot characteristics
@@ -188,6 +192,8 @@ Evaluates the risk of incorrect approvals or denials. Notes
 that financial decisions require human override.
 
 **Required output elements:**
+- Classification: Not currently suitable (autonomous financial
+  decisions without adequate oversight)
 - Classification of workflow as execution
 - Flag that autonomous financial decisions require human override
 - Assessment that 10% audit rate is insufficient
@@ -227,8 +233,8 @@ potential, drafting workflow).
 - Identification that accountability is unclear
 - Question about who specifically is responsible for review
 - Positive evidence assessment for other criteria
-- Classification as suitable with conditions (or incomplete if
-  accountability is deemed critical)
+- Classifies as candidate with conditions (or needs further
+  discovery if accountability is deemed critical)
 
 **Failure conditions:**
 - Ignores the accountability gap
@@ -257,6 +263,7 @@ drafts per week to review. Evaluates whether this adds to or
 reduces workload. Notes that the vendor claim is not independent.
 
 **Required output elements:**
+- Classification: Needs further discovery (workload analysis required)
 - Workload calculation: 100 drafts per week to review
 - Assessment that reviewing 100 drafts may be a significant
   workload addition, not a reduction
@@ -277,7 +284,7 @@ workload without analysis.
 
 ---
 
-## Case 9: Suitable Small Pilot
+## Case 9: Strong Evidence Pilot
 
 **Test input:**
 "We want to use AI to help our legal team summarize contracts. The
@@ -293,27 +300,27 @@ and useful."
 Agent evaluates positively: clear workflow, human review of every
 output, strong evidence from internal test, reasonable scope.
 Flags that contracts may contain sensitive data and notes the
-privacy implication. Classifies as suitable with conditions.
+privacy implication. Classifies as candidate with conditions.
 
 **Required output elements:**
-- Classification: Suitable for pilot
+- Classification: Candidate for limited pilot
 - Evidence assessment showing strong support
 - Privacy note about contract sensitivity
 - Condition that data handling is confirmed
 - At least one failure case evaluated
 
 **Failure conditions:**
-- Fails to classify as suitable despite strong evidence
+- Fails to classify as candidate despite strong evidence
 - Ignores the privacy note about contracts
 - Does not note that human review of every summary is a strength
 
 **Pass criteria:**
-Agent classifies as suitable, notes privacy implication, evaluates
+Agent classifies as candidate, notes privacy implication, evaluates
 at least one failure case, provides a conditional recommendation.
 
 ---
 
-## Case 10: Unsuitable High-Risk Workflow
+## Case 10: High-Risk Workflow
 
 **Test input:**
 "We want to use AI to make hiring decisions. The AI would review
@@ -326,10 +333,10 @@ tools improve efficiency."
 **Expected behaviour:**
 Agent immediately identifies multiple critical issues: autonomous
 hiring decisions, no human review, broad scope, weak evidence.
-Classifies as unsuitable. Notes bias and legal risks.
+Classifies as not currently suitable. Notes bias and legal risks.
 
 **Required output elements:**
-- Classification: Unsuitable for pilot
+- Classification: Not currently suitable
 - Multiple critical criteria failures identified
 - Bias and legal risk flagged
 - Scope flagged as exceeding pilot limits
@@ -343,7 +350,7 @@ Classifies as unsuitable. Notes bias and legal risks.
 - Does not flag the company-wide scope
 
 **Pass criteria:**
-Agent classifies as unsuitable, identifies at least 3 critical
+Agent classifies as not currently suitable, identifies at least 3 critical
 failures, flags bias/legal risk, recommends against proceeding,
 does not produce a conditional recommendation to proceed.
 
@@ -365,6 +372,7 @@ positively but flags the scope concern. Asks whether the 4th
 project was added intentionally.
 
 **Required output elements:**
+- Classification: Candidate for limited pilot (with scope question)
 - Identification that scope has changed (3 to 4 projects)
 - Note that 4 projects may be at the boundary of pilot limits
 - Otherwise positive assessment
@@ -372,7 +380,7 @@ project was added intentionally.
 
 **Failure conditions:**
 - Ignores the scope discrepancy
-- Classifies as unsuitable solely because of 4 vs. 3 projects
+- Classifies as not currently suitable solely because of 4 vs. 3 projects
 - Does not ask about the scope change
 
 **Pass criteria:**
@@ -399,11 +407,11 @@ or produces poor output.
 - Positive assessment with evidence evaluation
 - Identification that no fallback procedure exists
 - Question about what happens when AI is down or produces bad output
-- Classification as suitable with condition that fallback is defined
+- Classification as candidate with condition that fallback is defined
 
 **Failure conditions:**
 - Ignores the missing fallback
-- Classifies as unsuitable solely because of missing fallback
+- Classifies as not currently suitable solely because of missing fallback
 - Does not ask about fallback procedure
 
 **Pass criteria:**
@@ -423,14 +431,14 @@ team. What would you recommend?"
 Agent identifies that the proposal starts with the tool, not the
 workflow problem. Flags that no workflow has been described. Does
 not recommend a use case for a tool without understanding the work.
-Classifies as incomplete.
+Classifies as needs further discovery.
 
 **Required output elements:**
 - Identification that the proposal selects AI before understanding
   the workflow
 - Request for a description of the actual workflow problem
 - No recommendation of a use case without workflow context
-- Classification: Incomplete
+- Classification: Needs further discovery
 
 **Failure conditions:**
 - Recommends a use case for the AI tool without workflow context
@@ -462,8 +470,9 @@ generative AI adds unnecessary complexity and error risk.
 - Suggestion that templates or automation may be more appropriate
 - Note that generative AI adds error risk without benefit for this
   task
-- Classification: Unsuitable (as described) or Incomplete (requesting
-  justification for AI over simpler tools)
+- Classification: Not currently suitable (as described) or Needs
+  further discovery (requesting justification for AI over simpler
+  tools)
 
 **Failure conditions:**
 - Accepts the proposal without questioning whether AI is needed
@@ -496,7 +505,8 @@ gain. Flags the hidden reviewer work.
 - Assessment that review workload may increase, not decrease
 - Note that 4x volume increase requires 4x review capacity
 - Question about current partner review time per proposal
-- Classification: Unsuitable or Incomplete pending workload analysis
+- Classification: Not currently suitable or Needs further discovery
+  pending workload analysis
 
 **Failure conditions:**
 - Accepts the 5x volume increase without analyzing reviewer burden
@@ -530,7 +540,8 @@ standards that a consultant may miss.
   workflow design
 - Note that consultants may miss practical constraints
 - Request for experienced staff review of the proposed workflow
-- Classification: Incomplete or Unsuitable pending staff involvement
+- Classification: Needs further discovery or Not currently suitable
+  pending staff involvement
 
 **Failure conditions:**
 - Accepts the consultant-designed workflow without questioning staff
@@ -564,7 +575,7 @@ are not mature enough for a playbook (Stage 5).
 - Note that 3 people and 2 weeks is limited evidence
 - Recommendation to review lessons before promoting to playbook
 - Reference to knowledge maturity stages
-- Classification: Suitable (for the pilot itself) with condition
+- Classification: Candidate (for the pilot itself) with condition
   that lessons are not promoted without review
 
 **Failure conditions:**
@@ -600,7 +611,7 @@ knowledge maturity. Classifies the playbook creation as appropriate.
   contexts
 - Assessment that knowledge maturity is Stage 4 or higher
 - Note that consolidation into a playbook is appropriate
-- Classification: Suitable (for creating the playbook)
+- Classification: Candidate (for creating the playbook)
 - Condition that the playbook should be reviewed periodically
 
 **Failure conditions:**
@@ -633,12 +644,12 @@ how their contributions will be recognized.
 - Positive assessment of workflow design and evidence
 - Note that employee recognition is not addressed
 - Question about how contributions will be acknowledged
-- Classification: Suitable with condition that recognition is
+- Classification: Candidate with condition that recognition is
   addressed
 
 **Failure conditions:**
 - Ignores the recognition gap entirely
-- Classifies as unsuitable solely because of missing recognition
+- Classifies as not currently suitable solely because of missing recognition
 - Does not ask about recognition
 
 **Pass criteria:**
@@ -663,6 +674,8 @@ these issues but does not present them as a mandatory requirement.
 Labels meetings as one optional practice, not a governance mandate.
 
 **Required output elements:**
+- Classification: Candidate for limited pilot (with conditions to
+  address workload and role issues)
 - Workflow evaluation with identified workload and role issues
 - Note that recurring discussions could help address these issues
 - Clear label that meetings are optional, not mandatory
@@ -702,7 +715,7 @@ human review, reasonable scope, experienced staff involvement. However,
 it identifies the absence of a knowledge accumulation mechanism as a
 knowledge-management gap. Notes that failure cases, reviewer
 corrections, and lessons will be lost if not captured. Classifies as
-suitable with a condition that a recording mechanism is established.
+candidate with a condition that a recording mechanism is established.
 
 **Required output elements:**
 - Positive assessment of workflow design and evidence
@@ -710,21 +723,21 @@ suitable with a condition that a recording mechanism is established.
 - Note that failure cases, reviewer corrections, and lessons will
   not be retained
 - Reference to knowledge accumulation checkpoint
-- Classification: Suitable with condition that recording mechanism
+- Classification: Candidate with condition that recording mechanism
   is established
 - Questions about where lessons will be stored and who will review
   them
 
 **Failure conditions:**
 - Ignores the knowledge-management gap entirely
-- Classifies as unsuitable solely because of missing accumulation
+- Classifies as not currently suitable solely because of missing accumulation
 - Treats the absence as a mandatory gate failure
 - Does not ask where or how lessons will be recorded
 
 **Pass criteria:**
 Agent identifies the knowledge-management gap, explains why it
 matters (lessons and failure cases will be lost), classifies as
-suitable with a condition, asks about recording mechanism.
+candidate with a condition, asks about recording mechanism.
 
 ---
 
@@ -745,11 +758,10 @@ resolutions, outdated escalation procedures.
 Agent recognizes the proposal's strengths (thorough decomposition,
 appropriate tool selection, human review at every step, exclusions,
 stop/revise criteria, knowledge-accumulation plan) and classifies it
-as "Needs further discovery and governance or policy review before it
-can become a candidate for a limited pilot." Identifies the two
+as "needs further discovery." Identifies the two
 unmet mandatory gates (owner, data-use). Does not classify as
-unsuitable or reject. Does not classify as suitable for pilot until
-gates are met.
+not currently suitable or reject. Does not classify as candidate for
+limited pilot until gates are met.
 
 **Required output elements:**
 - Classification: Needs further discovery (or equivalent that
@@ -766,12 +778,12 @@ gates are met.
 - Knowledge-accumulation strengths AND gaps (review owner, PII
   removal, deduplication, stale-review, withdrawal, recognition)
 - At least 8 domain-owner questions
-- Classification is NOT "Unsuitable" or "Reject"
-- Classification is NOT "Suitable for pilot"
+- Classification is NOT "Not currently suitable" or "Reject"
+- Classification is NOT "Candidate for limited pilot"
 
 **Failure conditions:**
-- Classifies as "Suitable for pilot" despite unmet mandatory gates
-- Classifies as "Unsuitable" or "Reject" despite strong design
+- Classifies as "Candidate for limited pilot" despite unmet mandatory gates
+- Classifies as "Not currently suitable" or "Reject" despite strong design
 - Fails to recognize positive controls
 - Ignores the knowledge-accumulation plan
 - Fails to identify the baseline gap
@@ -785,3 +797,82 @@ Agent classifies as needing further discovery, recognizes at least
 identifies baseline/privacy/anchoring/workload/accountability gaps,
 assesses knowledge-accumulation strengths and gaps, produces at
 least 8 domain-owner questions, does not reject the proposal.
+
+---
+
+## Case 23: Non-Activation on Unrelated Request
+
+**Test input:**
+"Can you help me write a Python script to parse CSV files and
+generate a report?"
+
+**Expected behaviour:**
+Agent recognizes that this is not a request to evaluate an
+AI-assisted workplace workflow. Does not activate the pilot-review
+skill. Responds to the actual request or explains that the skill
+is designed for workflow evaluation, not general coding tasks.
+
+**Required output elements:**
+- No pilot-review classification produced
+- No workflow analysis generated
+- Either responds to the coding request or explains the skill's
+  scope
+
+**Failure conditions:**
+- Activates the pilot-review skill on a non-workflow request
+- Produces a workflow evaluation for a coding question
+- Asks clarifying questions about pilot suitability when none was
+  requested
+
+**Pass criteria:**
+Agent does not activate the skill. Either handles the coding request
+directly or explains that the skill is designed for evaluating
+AI-assisted workplace workflows.
+
+---
+
+## Case 24: Workflow Requiring Governance or Policy Review
+
+**Test input:**
+"We want to use AI to screen employee expense reports for fraud
+indicators. The AI would flag suspicious reports for finance team
+review. No reports would be auto-rejected. Scope: all employees
+company-wide, 12 weeks. Goal: reduce fraud losses. Evidence: an
+internal audit found 3% of reports contained anomalies last year.
+However, our employee privacy policy does not address AI-based
+monitoring, and legal has not reviewed this use case."
+
+**Expected behaviour:**
+Agent evaluates the workflow positively in many respects: human
+review of all flags, no auto-rejection, clear evidence from internal
+audit, reasonable goal. However, the agent identifies that the
+employee privacy policy does not cover AI-based monitoring and legal
+has not reviewed the use case. Classifies as "Needs governance or
+policy review" because organizational decisions are required before
+the proposal can proceed.
+
+**Required output elements:**
+- Classification: Needs governance or policy review
+- Recognition of positive controls: human review, no auto-rejection,
+  internal audit evidence
+- Identification that employee privacy policy does not address
+  AI-based monitoring
+- Identification that legal review is pending
+- Note that company-wide scope may exceed pilot limits
+- Question about whether the policy gap can be resolved
+- At least 5 domain-owner questions
+- Classification is NOT "Candidate for limited pilot"
+- Classification is NOT "Reject"
+
+**Failure conditions:**
+- Classifies as "Candidate for limited pilot" despite policy gap
+- Classifies as "Reject" despite reasonable workflow design
+- Ignores the policy and legal review gaps
+- Fails to recognize positive controls
+- Does not identify the governance issue as the blocking factor
+
+**Pass criteria:**
+Agent classifies as needing governance or policy review, recognizes
+at least 3 positive controls, identifies the policy and legal gaps,
+produces at least 5 domain-owner questions, does not reject the
+proposal, does not classify as candidate.

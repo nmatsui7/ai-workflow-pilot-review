@@ -3,10 +3,13 @@
 Use this checklist for every workflow evaluation. For each item, assign
 one of these statuses:
 
-- **Met:** Evidence supports this criterion.
-- **Partially met:** Some evidence exists but gaps remain.
-- **Not met:** No evidence or clear deficiency.
+- **Yes:** Evidence supports this criterion.
+- **No:** No evidence or clear deficiency.
+- **Unknown:** Insufficient information to assess.
 - **N/A:** Criterion does not apply to this workflow.
+
+For nuanced findings, add a brief evidence or notes field rather
+than inventing additional status labels.
 
 ## Completeness
 
@@ -137,8 +140,8 @@ Each item must be answered with: Yes, No, Unknown, or Not applicable.
 ## Mandatory Gates for Pilot Classification
 
 The following six gates must all be confirmed before a workflow can
-be classified as "Suitable for pilot." If any gate is not met, the
-workflow cannot receive that classification.
+be classified as "Candidate for limited pilot." If any gate is not
+met, the workflow cannot receive that classification.
 
 | # | Gate | Confirmed |
 |---|------|-----------|
