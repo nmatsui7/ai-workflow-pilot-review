@@ -341,3 +341,16 @@ This is the difference between a prompt and a business workflow
 artifact: a prompt asks an AI to do something. A workflow
 artifact defines how work should be done, what rules apply,
 what outputs are expected, and how quality is verified.
+
+---
+
+## License
+
+This work is licensed under the
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
+(CC BY 4.0).
+
+You are free to **share** and **adapt** the material for any purpose, even
+commercially, as long as you give appropriate credit, link to the license, and
+indicate if changes were made. The full legal text lives in the [`LICENSE`](LICENSE)
+file.
